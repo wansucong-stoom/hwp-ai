@@ -1,6 +1,6 @@
-﻿param(
+param(
     [string]$HancomBin = 'C:\Program Files (x86)\Hnc\Office 2024\HOffice130\Bin',
-    [string]$StoomModule = '',
+    [string]$StoomModule = (Join-Path $PSScriptRoot 'bridge\vendor\stoom-codex-native-host.mjs'),
     [string]$NodePath = '',
     [string]$OutputDirectory = ''
 )
@@ -12,7 +12,7 @@ $workspaceRoot = [IO.Path]::GetFullPath($projectRoot) + [IO.Path]::DirectorySepa
 if (-not $outputRoot.StartsWith($workspaceRoot, [StringComparison]::OrdinalIgnoreCase)) {
     throw 'Build output must stay inside this workspace.'
 }
-if (-not $StoomModule) { throw 'Pass -StoomModule with the local STOOM native host module path.' }
+if (-not $StoomModule) { throw 'The STOOM native host module path is required.' }
 if (-not $NodePath) { $NodePath = (Get-Command node.exe -ErrorAction Stop).Source }
 $cscPath = Join-Path $env:WINDIR 'Microsoft.NET\Framework\v4.0.30319\csc.exe'
 $frameworkRoot = Split-Path $cscPath
