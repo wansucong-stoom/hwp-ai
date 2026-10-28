@@ -55,4 +55,3 @@ node bridge/tests/editor-host.test.mjs
 - `build.ps1`, `install-context.ps1`: 로컬 빌드와 사용자별 설치
 
 STOOM SVG·ICO 원본과 비율을 유지한 파생 아이콘은 `addin/assets/`에 포함되어 있습니다.
-

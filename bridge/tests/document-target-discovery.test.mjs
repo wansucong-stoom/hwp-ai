@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {validateDocumentDiscovery,DOCUMENT_DISCOVERY_INSTRUCTIONS} from '../document-target-discovery.mjs';
+const snapshot={pages:[{number:1,text:'summary'},{number:2,text:'detail'}],targetPages:[1],sourcePages:[2],paragraphs:[{id:'p0',text:'same',cell:'c0',hasObjects:false},{id:'p1',text:'same',cell:'c1',hasObjects:true}]};
+assert.deepEqual(validateDocumentDiscovery(snapshot,{targets:['p0','p1'],uncertainties:[]}),{targets:['p0','p1'],uncertainties:[]});
+assert(DOCUMENT_DISCOVERY_INSTRUCTIONS.includes('untrusted'));
+for(const p of [{targets:['p0','p0'],uncertainties:[]},{targets:['p9'],uncertainties:[]},{targets:['p0'],uncertainties:['x'.repeat(501)]},{targets:['p0'],uncertainties:[],nativePath:'evil'}])assert.throws(()=>validateDocumentDiscovery(snapshot,p));
+assert.throws(()=>validateDocumentDiscovery({...snapshot,targetPages:[2,1]},{targets:[],uncertainties:[]}));
+assert.throws(()=>validateDocumentDiscovery({...snapshot,sourcePages:[1]},{targets:[],uncertainties:[]}));
+assert.throws(()=>validateDocumentDiscovery({...snapshot,paragraphs:[{...snapshot.paragraphs[0],xmlPath:'secret'}]},{targets:[],uncertainties:[]}));
+console.log('PASS read-only target discovery ID, page scope and untrusted-content contract');

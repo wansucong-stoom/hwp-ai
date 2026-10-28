@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Context-menu IDs and add-on merge path verified against installed HWP 2024. -->
+<HncAddonInfo>
+ <Id value="D4B89769-4800-4A36-B367-3B8A6E9F3482" />
+ <Name value="STOOM AI 편집" />
+ <Desc value="Codex와 대화하고 한글 본문에 글·편집 가능한 표·생성 이미지를 배치합니다." />
+ <Version value="0.6.28.0" />
+ <Hosts><Host name="Hwp" version="0.0.0.1" /></Hosts>
+ <Type value="dll"><EntryAssembly value="Stoom.Hwp.Codex.Context.dll" /></Type>
+ <Icons><Icon size="16" value="assets/stoom16.png"/><Icon size="24" value="assets/stoom24.png"/><Icon size="32" value="assets/stoom32.png"/><Icon size="64" value="assets/stoom64.png"/></Icons>
+ <FrameOverrides>
+  <ToolBoxes><ToolBox><Button caption="STOOM" image="assets/stoom32.png" actor="ChatOpenActor" /></ToolBox></ToolBoxes>
+  <ContextMenus>
+   <ContextMenu id="IDC_Body_Block"><Button id="IDC_STOOM_AI_EDIT_SELECTION" caption="AI 편집" actor="SelectionEditActor" updater="SelectionMenuUpdater" /></ContextMenu>
+   <ContextMenu id="IDC_Edit_Body"><Button id="IDC_STOOM_AI_EDIT_BODY" caption="AI 요청" actor="SelectionEditActor" updater="SelectionMenuUpdater" /></ContextMenu>
+   <ContextMenu id="IDC_Table"><Button id="IDC_STOOM_AI_REQUEST_TABLE" caption="AI 요청" actor="SelectionEditActor" updater="SelectionMenuUpdater" /></ContextMenu>
+   <ContextMenu id="IDC_Cell_Block"><Button id="IDC_STOOM_AI_EDIT_CELLS" caption="AI 편집" actor="SelectionEditActor" updater="SelectionMenuUpdater" /></ContextMenu>
+   <ContextMenu id="IDC_Textbox"><Button id="IDC_STOOM_AI_REQUEST_TEXTBOX" caption="AI 요청" actor="SelectionEditActor" updater="SelectionMenuUpdater" /></ContextMenu>
+  </ContextMenus>
+  <WorkspaceItems><WorkspaceItem id="IDC_STOOM_CODEX_WORKSPACE" image="assets/stoom16.png" source="WorkspaceBody" /></WorkspaceItems>
+ </FrameOverrides>
+</HncAddonInfo>
