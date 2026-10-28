@@ -1,5 +1,7 @@
 # STOOM AI for 한글
 
+현재 소스 버전: **0.6.28**
+
 한글 2024의 작업 창과 우클릭 메뉴에서 로컬 Codex 계정으로 대화하고, 문서 본문과 표를 편집하는 실험적 한애드온즈 확장입니다. 설치된 한글의 확장 API와 Codex CLI 연결을 사용합니다.
 
 ## 할 수 있는 일
@@ -39,7 +41,7 @@ PowerShell에서 이 저장소의 루트로 이동한 뒤, 실제 모듈 경로�
 
 이미지의 시각적 내용은 쪽 텍스트 분석에 포함되지 않습니다. 현재 문단 위치·서식 검증이 가능한 범위에서 자동 갱신합니다.
 
-일부 회귀 검사는 별도의 한글 설치나 로컬 시험 문서를 필요로 합니다. Node.js만으로 실행할 수 있는 예시는 다음과 같습니다.
+일부 회귀 검사는 별도의 한글 설치나 로컬 시험 문서를 필요로 합니다. 위 빌드를 완료한 뒤 Node.js로 실행할 수 있는 예시는 다음과 같습니다.
 
 ```powershell
 node bridge/tests/intent-route.test.mjs --stoom-module (Resolve-Path .\dist\StoomCodexContext\bridge\vendor\stoom-codex-native-host.mjs).Path
@@ -55,3 +57,4 @@ node bridge/tests/editor-host.test.mjs
 - `build.ps1`, `install-context.ps1`: 로컬 빌드와 사용자별 설치
 
 STOOM SVG·ICO 원본과 비율을 유지한 파생 아이콘은 `addin/assets/`에 포함되어 있습니다.
+
